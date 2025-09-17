@@ -1,49 +1,7 @@
 # Onboarding Scoping Review
 
 ## Overview
-This repistory 
-## Key Improvements Made
-
-### 🔧 **Fixed Critical Issues**
-- ✅ Removed missing function calls (`read_custom_criteria`)
-- ✅ Fixed database schema inconsistencies
-- ✅ Completed incomplete code sections
-- ✅ Improved error handling throughout the application
-- ✅ Fixed session state management
-
-### 🎨 **Enhanced GUI**
-- ✅ Cleaner, more intuitive interface
-- ✅ Better navigation with sidebar quick actions
-- ✅ Improved visual feedback and status indicators
-- ✅ Enhanced forms with better validation
-- ✅ Professional styling with gradient backgrounds
-
-### 📝 **Flexible Criteria Management**
-- ✅ Easy-to-use criteria creation interface
-- ✅ Domain-based organization
-- ✅ In-place editing and deletion
-- ✅ Comprehensive evaluation guides
-- ✅ Real-time preview of criteria details
-
-### ✏️ **Improved Prompt Management**
-- ✅ Template-based prompt system
-- ✅ Quick loading and editing of prompts
-- ✅ Domain-specific templates
-- ✅ Live preview of prompt content
-- ✅ Easy template creation and management
-
-### 📊 **Better Analytics**
-- ✅ Comprehensive analytics dashboard
-- ✅ Domain-based analysis breakdowns
-- ✅ Review history and trends
-- ✅ Key performance metrics
-
-### 🚀 **Enhanced Workflow**
-- ✅ Streamlined document upload process
-- ✅ Progress tracking during analysis
-- ✅ Batch processing capabilities
-- ✅ Improved results display
-- ✅ Easy result saving and management
+This repository includes the scripts used to run the scoping review "Onboarding Practices in Anesthesiology: Agent-Augmented Scoping Review”.
 
 ## Installation & Setup
 
@@ -64,7 +22,7 @@ pip install plotly  # For advanced charts
 
 ### 1. Start the Application
 ```bash
-streamlit run review_app_improved.py
+streamlit run review_app.py
 ```
 
 ### 2. Configure Your Profile
