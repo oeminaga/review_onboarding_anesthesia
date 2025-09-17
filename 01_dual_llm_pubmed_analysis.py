@@ -242,13 +242,25 @@ def save_results_to_csv(data, filename="pubmed_dual_llm_analysis.csv"):
 
 
 def main():
-    query = '"anesthesiology" AND ("onboarding" OR "orientation" OR "mentorship" OR "induction training")'
-    start_date = "2015/01/01"
-    end_date = "2025/05/01"
-    total_limit = 1000
+    import argparse
+    parser = argparse.ArgumentParser(description="PubMed dual LLM onboarding analysis")
+    parser.add_argument('--query', type=str, default='"anesthesiology" AND ("onboarding" OR "orientation" OR "mentorship" OR "induction training")', help='PubMed search query or path to .txt file containing query')
+    parser.add_argument('--start_date', type=str, default="2015/01/01", help='Start date (YYYY/MM/DD)')
+    parser.add_argument('--end_date', type=str, default="2025/05/01", help='End date (YYYY/MM/DD)')
+    parser.add_argument('--total_limit', type=int, default=1000, help='Total number of articles to fetch')
+    args = parser.parse_args()
+
+    query = args.query
+    # If query is a file, read its contents
+    if query.endswith('.txt') and os.path.isfile(query):
+        with open(query, 'r', encoding='utf-8') as f:
+            query = f.read().strip()
+
+    start_date = args.start_date
+    end_date = args.end_date
+    total_limit = args.total_limit
 
     print("🔍 Fetching PubMed abstracts...")
-    # save the logging file
     Entrez.log_file = "./pubmed_analysis.log"
     logger.info(f"Query: {query}, Start Date: {start_date}, End Date: {end_date}, Total Limit: {total_limit}")
     abstracts = get_pubmed_abstracts_paged(query,
@@ -260,27 +272,6 @@ def main():
     for i, entry in enumerate(abstracts, start=1):
         print(f"\n📄 [{i}/{len(abstracts)}] Analyzing: {entry['title'][:80]}...")
         logging.info(f"Analyzing abstract {i}/{len(abstracts)}: {entry['title'][:80]}")
-        """
-        if not entry["abstract"]:
-            print("❌ No abstract found, skipping...")
-            logging.warning(f"No abstract found for entry {i}, skipping...")
-            final_results.append({
-                "Title": entry["title"],
-                "Abstract": entry["abstract"],
-                "Authors": entry["authors"],
-                "Journal": entry["journal"],
-                "Year": entry["year"],
-                "ClaudiaIsRelated": "NA",
-                "ClaudiaStrategy": "NA",
-                "ClaudiaPopulation": "NA",
-                "ClaudiaOutcome": "NA",
-                "OpenAIIsRelated": "NA",
-                "OpenAIStrategy": "NA",
-                "OpenAIPopulation": "NA",
-                "OpenAIOutcome": "NA"
-            })
-            continue
-        """
         claudia_result = analyze_with_claudia(entry["title"], entry["abstract"])
         openai_result = analyze_with_openai(entry["title"], entry["abstract"])
         logging.info("web scraping completed successfully")
