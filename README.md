@@ -36,7 +36,7 @@ python 03_pubmed_download_pdf_from_elsevier_to_analyse.py --output_folder ./pubm
 ```bash
 ./04_run_improved_app.bat
 ```
-#### 5. Import the citation information of included articles into EndNote.
+#### 5. Create the citation information for the included articles with PDF files to import into EndNote.
 ```bash
 python 05_export_to_endnote.py --input_csv merged_output.csv --pdf_dir pubmed_pdfs --output_enw endnote_import/output.enw
 ```
