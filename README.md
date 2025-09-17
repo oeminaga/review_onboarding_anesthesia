@@ -18,25 +18,25 @@ pip install streamlit requests pandas sqlite3
 pip install plotly  # For advanced charts
 ```
 ## Worfklow of the scoping review
-### 1. Run Pubmed Search and Screening
+#### 1. Run Pubmed Search and Screening
 ```bash
 python 01_dual_llm_pubmed_analysis.py --query '"anesthesiology" AND ("onboarding" OR "orientation")' --start_date "2020/01/01" --end_date "2025/05/01" --total_limit 100
 ```
-### 2. Merge different screening results and exclude search items that did not reach consensus threshold.
+#### 2. Merge different screening results and exclude search items that did not reach consensus threshold.
 ```bash
 python 02_merge_csv_multiple.py --folder ./csv_files --threshold 3 --match_columns ClaudiaIsRelated OpenAIIsRelated --match_value True
 ```
 
-### 3. Download PDF files related to the included articles. Please provide the PubMed link, PMC link, and DOI (Example: pubmed_create_csv_file_to_in_depth_analyse.csv).
+#### 3. Download PDF files related to the included articles. Please provide the PubMed link, PMC link, and DOI (Example: pubmed_create_csv_file_to_in_depth_analyse.csv).
 ```bash
 python 03_pubmed_download_pdf_from_elsevier_to_analyse.py --output_folder ./pubmed_pdfs/ --csv_file pubmed_create_csv_file_to_in_depth_analyse.csv
 ```
 
-### 4. Run GUI for Evaluation Assessment of the included articles.
+#### 4. Run GUI for Evaluation Assessment of the included articles.
 ```bash
 ./04_run_improved_app.bat
 ```
-### 5. Import the citation information of included articles into EndNote.
+#### 5. Import the citation information of included articles into EndNote.
 ```bash
 python 05_export_to_endnote.py --input_csv merged_output.csv --pdf_dir pubmed_pdfs --output_enw endnote_import/output.enw
 ```
