@@ -145,12 +145,3 @@ The application creates three main tables:
 
 ### Support
 For additional support or feature requests, check the application logs and error messages for specific guidance.
-
-## Future Enhancements
-
-- 📧 Email notifications for completed analyses
-- 🔄 Batch export/import of criteria and templates
-- 📈 Advanced analytics with trend analysis
-- 🌐 Multi-language support
-- 🔐 User authentication and role management
-- ☁️ Cloud storage integration
