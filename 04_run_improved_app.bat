@@ -12,12 +12,12 @@ if errorlevel 1 (
 )
 
 REM Start the application
+REM Optionally start the FastAPI backend with Uvicorn
+echo To run the FastAPI backend, uncomment the next line:
+REM start "FastAPI" python -m uvicorn app:app --reload --port 8000
 REM Start the Streamlit frontend
 echo Starting the Streamlit frontend...
 start "Streamlit" streamlit run review_app.py
 
-REM Optionally start the FastAPI backend with Uvicorn
-echo To run the FastAPI backend, uncomment the next line:
-REM start "FastAPI" python -m uvicorn app:app --reload --port 8000
-
 pause
+
