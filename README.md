@@ -32,7 +32,7 @@ python 02_merge_csv_multiple.py --folder ./csv_files --threshold 3 --match_colum
 python 03_pubmed_download_pdf_from_elsevier_to_analyse.py --output_folder ./pubmed_pdfs/ --csv_file pubmed_create_csv_file_to_in_depth_analyse.csv
 ```
 
-#### 4. Run GUI for Evaluation Assessment of the included articles.
+#### 4. Run GUI for Agent-driven Evaluation Assessment of the included articles.
 ```bash
 ./04_run_improved_app.bat
 ```
@@ -40,7 +40,7 @@ python 03_pubmed_download_pdf_from_elsevier_to_analyse.py --output_folder ./pubm
 ```bash
 python 05_export_to_endnote.py --input_csv merged_output.csv --pdf_dir pubmed_pdfs --output_enw endnote_import/output.enw
 ```
-## Usage of GUI for Evaluation Assessment of Articles
+## Usage of GUI for Agent-driven Evaluation Assessment of Articles
 ### 1. Start the Application
 ```bash
 ./04_run_improved_app.bat
